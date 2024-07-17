@@ -11,16 +11,20 @@ reload(__dirname, {
 
 function criarJanela() {
   const config = {
-    width: 800,
-    height: 600,
+    // width: 800,
+    // height: 600,
     // autoHideMenuBar: true /* aperece com a tecla Alt */,
   };
 
   const janela = new BrowserWindow(config);
 
   janela.loadFile("index.html");
+  janela.setIcon("image.png");
   janela.setMenuBarVisibility(false);
+  janela.setTitle("Teste"); /* Apenas se nao tiver o html carregado */
+  // janela.maximize(); /* Para a app abrir em tela cheia */
   // janela.webContents.openDevTools();
+  // janela.simpleFullScreen = true;
 }
 
 app.whenReady().then(criarJanela);
