@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+}
+
+.cabecalho {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.form input {
+  width: 40%;
+}
+
+.atividades {
+  display: flex;
+  flex-direction: column;
+  /* padding: 2rem; */
+  gap: 1rem;
+}
+
+.ativ {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 1rem;
+  background-color: azure;
+  border-radius: 5px;
+  box-shadow: 0 0 1px black;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.ativ p {
+  width: 60%;
+}
