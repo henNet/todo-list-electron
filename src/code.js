@@ -9,13 +9,19 @@ function adicionarAtividade() {
     let atividade = document.createElement("div");
     atividade.classList.add("ativ");
 
-    atividade.innerHTML = `
-      <input type="checkbox" />
-      <p>${inputAtividade.value}</p>`;
+    let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.addEventListener("change", mudarStatusAtividade);
+
+    let p = document.createElement("p");
+    p.innerHTML = inputAtividade.value;
 
     let button = document.createElement("button");
     button.innerHTML = "Excluir";
     button.addEventListener("click", removerAtividade);
+
+    atividade.appendChild(checkbox);
+    atividade.appendChild(p);
     atividade.appendChild(button);
 
     atividades.push(atividade);
@@ -39,4 +45,15 @@ function removerAtividade(event) {
 
   container.innerHTML = "";
   atividades.forEach((item) => container.appendChild(item));
+}
+
+function mudarStatusAtividade(event) {
+  let elemPai = event.target.parentElement;
+  if (event.target.checked) {
+    elemPai.style.opacity = "50%";
+    elemPai.children[1].style.textDecoration = "line-through";
+  } else {
+    elemPai.style.opacity = "100%";
+    elemPai.children[1].style.textDecoration = "none";
+  }
 }
