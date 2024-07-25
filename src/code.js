@@ -2,7 +2,9 @@ var container = document.querySelector(".atividades");
 var inputAtividade = document.querySelector("#inputAtiv");
 var atividades = [];
 
-function adicionarAtividade() {
+function adicionarAtividade(event) {
+  if (event && event.keyCode !== 13) return;
+
   if (inputAtividade.value === "") {
     //TODO: Fazer uma mensagem de Alert
   } else {
@@ -47,11 +49,27 @@ function removerAtividade(event) {
   atividades.forEach((item) => container.appendChild(item));
 }
 
+function atualizarStatusAtividade(ativ) {
+  let index = -1;
+  for (i = 0; i < atividades.length; i++) {
+    if (atividades[i] == ativ) index = i;
+  }
+
+  if (index > -1) {
+    atividades.splice(index, 1);
+  }
+
+  atividades.push(ativ);
+  container.innerHTML = "";
+  atividades.forEach((item) => container.appendChild(item));
+}
+
 function mudarStatusAtividade(event) {
   let elemPai = event.target.parentElement;
   if (event.target.checked) {
     elemPai.style.opacity = "50%";
     elemPai.children[1].style.textDecoration = "line-through";
+    atualizarStatusAtividade(elemPai);
   } else {
     elemPai.style.opacity = "100%";
     elemPai.children[1].style.textDecoration = "none";
