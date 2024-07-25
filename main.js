@@ -9,6 +9,7 @@ reload(__dirname, {
   electron: require(`${__dirname}/node_modules/electron`),
 });
 
+/* Outra forma de retirar o menu */
 // Menu.setApplicationMenu(null);
 
 function criarJanela() {
@@ -26,7 +27,7 @@ function criarJanela() {
   janela.setMenuBarVisibility(false);
   janela.setTitle("Teste"); /* Apenas se nao tiver o html carregado */
   // janela.maximize(); /* Para a app abrir em tela cheia */
-  janela.webContents.openDevTools();
+  // janela.webContents.openDevTools();
   // janela.simpleFullScreen = true;
 }
 
